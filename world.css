@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    background-color:  #009dc4;
+    background-color: #009dc4;
     color: #fff;
     text-align: center;
     padding: 15px 0;
@@ -38,7 +38,8 @@ label {
     font-size: 16px;
 }
 
-#lookup {
+#lookup,
+#lookupCities {
     padding: 8px 16px;
     font-size: 16px;
     background-color: #4CAF50;
@@ -48,13 +49,17 @@ label {
     cursor: pointer;
 }
 
-#lookup:hover {
+#lookup:hover,
+#lookupCities:hover {
     background-color: #45a049;
+}
+
+#lookupCities {
+    margin-left: 10px;
 }
 
 #result {
     text-align: center;
     font-size: 18px;
-    color: rgb(17, 17, 17)000;
+    color: rgb(17, 17, 17);
 }
-

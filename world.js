@@ -1,14 +1,34 @@
-// world.js
+var country = document.getElementById('country').value;
+var url = 'world.php?country=' + country + '&lookup=cities';
 
-document.getElementById('lookup').addEventListener('click', function() {
-    var country = document.getElementById('country').value;
-    var url = 'world.php?country=' + country;
-  
-    fetch(url)
-      .then(function(response) {
-        return response.text();
-      })
-      .then(function(data) {
-        document.getElementById('result').innerHTML = data;
-      });
+fetch(url)
+  .then(function(response) {
+    if (response.ok) {
+      return response.text();
+    } else {
+      throw new Error('Error fetching data');
+    }
+  })
+  .then(function(data) {
+    document.getElementById('result').innerHTML = data;
+  })
+  .catch(function(error) {
+    console.error('Error:', error);
   });
+
+document.getElementById('lookup-cities').addEventListener('click', function() {
+  fetch(url)
+    .then(function(response) {
+      if (response.ok) {
+        return response.text();
+      } else {
+        throw new Error('Error fetching data');
+      }
+    })
+    .then(function(data) {
+      document.getElementById('result').innerHTML = data;
+    })
+    .catch(function(error) {
+      console.error('Error:', error);
+    });
+});
