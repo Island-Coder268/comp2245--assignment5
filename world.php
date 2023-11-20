@@ -14,11 +14,11 @@ if (isset($_GET['country'])) {
 
   if ($lookup === 'cities') {
     $stmt = $conn->prepare("
-      SELECT c.name AS city_name, c.district, c.population, co.name AS country_name
-      FROM cities c
-      INNER JOIN countries co ON c.country_id = co.id
-      WHERE co.name LIKE :country
-    ");
+    SELECT c.name AS city_name, c.district, c.population, co.name AS country_name
+    FROM cities c
+    INNER JOIN countries co ON c.country_id = co.id
+    WHERE countries.name LIKE :country
+  ");
   } else {
     $stmt = $conn->prepare("SELECT * FROM countries WHERE name LIKE :country");
   }
@@ -29,7 +29,7 @@ if (isset($_GET['country'])) {
 }
 
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+var_dump($results);
 ?>
 
 <table>
